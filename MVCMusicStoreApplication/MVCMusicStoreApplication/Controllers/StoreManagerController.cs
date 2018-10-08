@@ -134,7 +134,7 @@ namespace MVCMusicStoreApplication.Controllers
         }
     }
 
-    public ActionResult Test()
+   /* public ActionResult Test()
     {
         var albums = db.Albums;
         //LINQ
@@ -150,8 +150,8 @@ namespace MVCMusicStoreApplication.Controllers
                             where a.Genre.Name == "Classical"
                             orderby a.Title descending
                             select a);
-
-        ViewBag.AlbumbyName = new SelectList(albumsbyname, "AlbumID", "Title", albumsbyname.First().AlbumId);
-        return ViewContext();
-    }
+        */
+      //  ViewBag.AlbumbyName = new SelectList(albumsbyname, "AlbumID", "Title", albumsbyname.First().AlbumId);
+      //  return ViewContext();
+    
 }
