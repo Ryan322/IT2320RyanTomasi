@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EnrollmentApplication.Models
 {
-    public class Student
+    public class Student : IValidatableObject
     {
         [Display(Name = "Student ID")]
         [Required(ErrorMessage = "Student ID cannot be blank")]
@@ -22,5 +22,35 @@ namespace EnrollmentApplication.Models
         [Required(ErrorMessage = "First Name cannot be blank")]
         [Range(1, 50)]
         public virtual string FirstName { get; set; }
+
+        // [InvalidChars(20)] - Custom Data Annotation
+        public virtual string Notes { get; set; }
+
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string Zipcode { get; set; }
+        public string State { get; set; }
+
+        IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            // validate 1 Addess2 cant be Address1
+            if (Address2.Equals(Address1))
+            {
+                yield return (new ValidationResult("Address2 cannot be the same as Address1.", new[] { "Address" }));
+            }
+
+            // validate 2 State has to be 2 digits
+            if (State >= 10 && <=99)
+            {
+                yield return (new ValidationResult("Enter a 2 digit State code.", new[] { "State" }));
+            }
+
+            // validate 3 Zipcode has to be 5 digits
+            if (Zipcode >= 10000 && <= 99999)
+            {
+                yield return (new ValidationResult("Enter a 5 digit zipcode.", new[] { "Zipcode" }));
+            }
+        }
     }
 }
