@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Index</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div>
+        <h1>Student of Month</h1>
+        @Ajax.ActionLink("Student of the Month", // <-- Text to display
+                 "Student", // <-- Action Method Name
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "StudentList", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+    </div>
+
+    <div id="StudentList">
+        <p>Student List</p>
+    </div>
+</body>
+
+ public PartialViewResult Germany()
+
+{
+
+    var result = from r in db.Students
+
+                    where r.Name == "Joe"
+
+                    select r;
+
+    return PartialView("_Country", result);
+
+} 
+
+</html>
+
+@section Scripts
+{
+    <script src="~/Scripts/Apps/TestScript.js"></script>
+}

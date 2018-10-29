@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EnrollmentApplication.Models
 {
-    public class Student : IValidatableObject
+    public class Student // : IValidatableObject
     {
         [Display(Name = "Student ID")]
         [Required(ErrorMessage = "Student ID cannot be blank")]
@@ -39,7 +39,7 @@ namespace EnrollmentApplication.Models
             {
                 yield return (new ValidationResult("Address2 cannot be the same as Address1.", new[] { "Address" }));
             }
-
+/*
             // validate 2 State has to be 2 digits
             if (State >= 10 && <=99)
             {
@@ -51,6 +51,7 @@ namespace EnrollmentApplication.Models
             {
                 yield return (new ValidationResult("Enter a 5 digit zipcode.", new[] { "Zipcode" }));
             }
+ */
         }
     }
 }

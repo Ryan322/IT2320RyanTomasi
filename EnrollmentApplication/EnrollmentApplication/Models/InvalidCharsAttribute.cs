@@ -15,7 +15,7 @@ namespace EnrollmentApplication.Models
             inv_chars = invChars;
          }
 
-    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+ /*   protected override ValidationResult IsValid(object value, ValidationContext validationContext)
     {
             if (value != null)
             {
@@ -29,7 +29,7 @@ namespace EnrollmentApplication.Models
 
             return ValidationResult.Success;
     }
-
+    */
 
     }
 }
