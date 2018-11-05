@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Browse";
+}
+
+
+<h2>Browse</h2>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genres.Name)
+        </td>
+    </tr>
+
