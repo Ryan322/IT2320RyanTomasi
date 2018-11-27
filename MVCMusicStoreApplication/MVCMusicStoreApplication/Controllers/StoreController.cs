@@ -8,8 +8,8 @@ namespace MVCMusicStoreApplication.Controllers
 {
     public class StoreController : Controller
     {
-        /*
-                MVCMusicStoreApplicationDB db = new MVCMusicStoreApplicationDB();
+
+        Models.MVCMusicStoreApplicationDB db = new Models.MVCMusicStoreApplicationDB();
 
                 [HttpGet]
                 public ActionResult Browse()
@@ -21,7 +21,7 @@ namespace MVCMusicStoreApplication.Controllers
                 [HttpGet]
                 public ActionResult Index()
                 {
-                    int Album = from m in db.Album
+                    int Album = from m in db.Albums
                                 where Genreid =("");
                     return View();
                 }
@@ -29,10 +29,10 @@ namespace MVCMusicStoreApplication.Controllers
                 [HttpGet]
                 public ActionResult Details()
                 {
-                    int Album = from m in db.Album
+                    int Album = from m in db.Albums
                                 where Albumid = ("");
                     return View();
                 }
-                */
+                // dont know
     }
 }
