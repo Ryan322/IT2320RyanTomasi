@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>Event Store</h1>
+    <p class="lead">Bringing you the best in events near you!</p>
+</div>
+
+
+
+<div id="lastminutedeals">
+    @Ajax.ActionLink("Click here for Last Minute Deals!",
+    "LastMinuteDeals",
+    null,
+    new AjaxOptions
+    {
+        UpdateTargetId = "lastminutedeals",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    },
+    new { @class = "btn btn-primary" })
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Event Search</div>
+    <div class="panel-body">
+        @using (
+                Ajax.BeginForm("EventSearch", "EventStore",
+                new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    HttpMethod = "GET",
+                    UpdateTargetId = "searchresults",
+                    LoadingElementId = "ajax-loader",
+                    OnFailure = "searchFailed"
+                }
+                )
+                )
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+        }
+
+        <div id="searchresults">
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <scripts src="~/Scripts/jquery.validate.unobtrusive.min.js"></scripts>
+}

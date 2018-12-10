@@ -4,13 +4,13 @@
 }
 
 
-<h2>Browse</h2>
-
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genres.Name)
-        </td>
-    </tr>
+<h2>Browsing Genre: @Model.Name</h2>
+<ul>
+    @foreach (var album in Model.Albums)
+    {
+        <li>
+            @album.Title
+        </li>
+    }
+</ul>
 

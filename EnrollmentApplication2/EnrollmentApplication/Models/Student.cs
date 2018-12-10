@@ -32,13 +32,13 @@ namespace EnrollmentApplication.Models
         public string Zipcode { get; set; }
         public string State { get; set; }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+       /* public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             throw new NotImplementedException();
         }
+        */
 
-
-        /*public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             // validate 1 Addess2 cant be Address1
             if (Address2.Equals(Address1))
@@ -47,16 +47,16 @@ namespace EnrollmentApplication.Models
             }
 
             // validate 2 State has to be 2 digits
-            if (State >= 10 && State <=99)
+            if (State.Length <= 1 && State.Length >= 3) // State >= 10 && State <=99
             {
                 yield return (new ValidationResult("Enter a 2 digit State code.", new[] { "State" }));
             }
 
             // validate 3 Zipcode has to be 5 digits
-            if (Zipcode >= 10000 && Zipcode <= 99999)
+            if (Zipcode.Length <= 4 && Zipcode.Length >= 6) // Zipcode >= 10000 && Zipcode <= 99999
             {
                 yield return (new ValidationResult("Enter a 5 digit zipcode.", new[] { "Zipcode" }));
             }
-        }*/
+        }
     }
 }

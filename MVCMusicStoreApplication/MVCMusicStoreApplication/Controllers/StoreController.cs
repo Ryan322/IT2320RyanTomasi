@@ -10,29 +10,31 @@ namespace MVCMusicStoreApplication.Controllers
     {
 
         Models.MVCMusicStoreApplicationDB db = new Models.MVCMusicStoreApplicationDB();
-
+        // MVCMusicStoreDB db = new MVCMusicStoreDB();
+        
                 [HttpGet]
                 public ActionResult Browse()
                 {
-                    var Genres = from m in db.Genres;
-                    return View();
-                }
+                   var genres = Models.MVCMusicStoreApplicationDB.Genres.ToList();
+                   return View(genres);
 
-                [HttpGet]
-                public ActionResult Index()
-                {
-                    int Album = from m in db.Albums
-                                where Genreid =("");
-                    return View();
                 }
 
                 [HttpGet]
                 public ActionResult Details()
                 {
-                    int Album = from m in db.Albums
-                                where Albumid = ("");
+                    int Album = from m in db.Album
+                                where Genreid =("");
                     return View();
                 }
-                // dont know
+
+                [HttpGet]
+                public ActionResult Index(int id)
+                {
+                    var album = MVCMusicStoreApplicationDB.Albums.Find(id);
+
+                    return View(album);
+                }
+                
     }
 }
